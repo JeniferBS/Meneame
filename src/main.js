@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import VueFire from 'vuefire'
 import router from './router'
+import {auth} from './firebaseConfig'
 
 new Vue({
   el: '#app',
