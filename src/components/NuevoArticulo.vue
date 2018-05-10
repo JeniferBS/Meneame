@@ -1,5 +1,6 @@
 <template>
  <div class="container">
+     <p>Admin Zone <button class="btn btn-primary" @click="logout">Salir</button></p>
             <h4>Añade aquí un nuevo artículo</h4>
             <form role="form" id="Formulario" action="../php/contacto2.php" method="POST">
                 <div class="form-group">
@@ -25,8 +26,27 @@
 </template>
 
 <script>
+import {db} from '../firebaseConfig'
+import {auth} from '../firebaseConfig'
+
 export default {
-    name: 'nuevoarticulo'
+    name: 'nuevoarticulo',
+
+    data(){
+			return{
+				menu: [],
+				orders: []
+			}
+		},
+		
+		methods:{
+			logout(){
+				auth.signOut().then(()=>{
+					this.$router.replace("home")
+				})
+			},
+			
+		}
 }
 </script>
 
